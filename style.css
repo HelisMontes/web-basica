@@ -8,11 +8,6 @@ body{
   background: url("./img/paven.png");
 }
 
-.container{
-  height: auto;
-  width: 100%;
-}
-
 header{
   height: 240px;
   display: flex;
@@ -129,9 +124,8 @@ form input[type=button]{
   color: whitesmoke;
   margin-top: 20px;
   margin-bottom: 15px;
-  margin-left: 50%;
   padding: 7px;
-  transform: translateX(-50%);
+  margin-left: 9%;
   transition: box-shadow .6s ease;
   width: 80%;
 }
@@ -223,7 +217,7 @@ footer{
   width: 100%;
 }
 
-@media (max-width:767px){
+@media (max-width:767px) and (min-width:576px){
   .body{
     display: flex;
     align-items: center;
