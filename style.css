@@ -1,21 +1,26 @@
-body{
+*{
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
   background: url("./img/paven.png");
 }
 
 .container{
-  height: 100%;
+  height: auto;
   width: 100%;
 }
 
 header{
   height: 240px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
 }
-
 .logo img{
-  padding-top: 5px;
   display: block;
   height: 170px;
   margin: auto; 
@@ -35,21 +40,19 @@ header{
 .nav{
   background-color: #333333;
   font-family: sans-serif, Helvetica, sans-serif;
-  height: 50px;
-  width: 100%;
+  height: auto;
 }
 .nav ul{
   list-style: none;
   margin: 0px auto;
-  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
 }
 .nav > ul > li{
-  /*line-height coloca una linia entre cada li*/
+  text-align: center;
   line-height: 50px;
   border-right: 1px solid gray;
-  display: block;
-  float: left;
-  padding: 0px 20px 0px 20px;
   transition: background .5s, box-shadow .3s
 }
 .nav > ul > li:hover{
@@ -63,58 +66,45 @@ header{
   color: whitesmoke;
   text-decoration: none;
 }
-
-/*SUB-MENU */
-.nav > ul > li > ul{
-  display: none;
-  position: absolute;
-  width: 160px;
-  z-index: 1;
-  margin-left: -60px;
-}
-
-.nav > ul > li:hover > ul{
-  display: block;
-}
-.nav > ul > li > ul > li{
-  background-color: #333333;
-  padding: 0px 20px 0px 20px;
-}
-.nav > ul > li > ul > li:hover{
-  background-color: rgb(1, 63, 1);
-  box-shadow: -1px 0px 2px #3d3d3d;
-}
-/*_______________________________*/
-
 .body{
-  height: 1550px;
-  min-height: 1100px;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 40px auto;
+  min-height: 800px;
   width: 100%;
-  margin: 0px auto;
+  padding: 0 30px;
 }
 .panel-left{
   box-shadow: 0px 0px 5px #464646;
-  display: block;
-  margin: 48px 0px 0px 30px;
-  float: left;
-  width: 19%;
+  width: 22%;
+  padding-top: 20px;
 }
-.panel-left h1{
-  font-weight: 500;
+.panel-left h2{
   font-family: Tahoma, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
 }
-.login {
-  padding: 10px 15px 10px 15px;
+.login, .aula-virtual {
+  padding: 15px;
   border-bottom: 2px solid grey;
 }
 .title{
   background-color: rgb(235, 232, 232);
   box-shadow: 0px 0px 1px #464646;
-  font-size: 12px;
-  text-align: center;
-  margin: 0px auto;
 }
-form input[type=text], input[type=password]{
+.login form, .aula-virtual form{
+  margin-top: 25px;
+}
+.aula-virtual{
+  padding: 15px;
+  border-bottom: 2px solid grey;
+}
+.aula-virtual:last-child{
+  border-bottom: 0px;
+}
+form input[type=text], form input[type=password]{
   background-color: rgba(255, 255, 255, 0);
   border: 0px;
   border-bottom: 1px solid rgb(1, 63, 1);
@@ -123,27 +113,27 @@ form input[type=text], input[type=password]{
   margin-bottom: 15px;
   padding: 10px;
   transition: color .3s, box-shadow .6s ease;
-  width: 90%;
+  width: 95%;
 }
-form input[type=text]:focus, input[type=password]:focus{
+form input[type=text]:focus, form input[type=password]:focus{
   color: rgb(1, 63, 1);
   border-radius: 2px;
   box-shadow: 0px 1px 2px rgba(75, 151, 75, 0.8);
   /*outline Quitar los bordes del input*/
   outline:none;
 }
-
 form input[type=button]{
   background-color: teal;
   border: 0px;
   border-radius: 2px;
   color: whitesmoke;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 7px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 50%;
   padding: 7px;
+  transform: translateX(-50%);
   transition: box-shadow .6s ease;
-  width: 90%;
+  width: 80%;
 }
 form input[type=button]:hover{
   border: 0px;
@@ -151,13 +141,6 @@ form input[type=button]:hover{
   font-weight: bold;
   outline:none;
   cursor: pointer;
-}
-.aula-virtual{
-  padding: 10px 15px 10px 15px;
-  border-bottom: 2px solid grey;
-}
-.aula-virtual:last-child{
-  border-bottom: 0px;
 }
 
 .login a, .aula-virtual a{
@@ -186,12 +169,12 @@ form input[type=button]:hover{
   background-color: rgba(243, 118, 1, 0.8);
   color: white;
 }
+.aula-virtual .lista-aulas{
+  margin-top: 25px;
+}
 .panel-news{
-  display: block;
-  float: left;
-  margin-top: 48px;
-  margin-bottom: 50px;
-  width: 70%;
+  width: 80%;
+  margin-left: 50px;
 }
 .news{
   background-color: whitesmoke;
@@ -201,47 +184,96 @@ form input[type=button]:hover{
       2do parametro posicion arriba
       3er parametro intencidad de la sombra
   */
+  border-radius: 5px;
   box-shadow: 0px 0px 5px #464646;
-  display: block;
-  float: left;
   height: 0px auto;
-  margin-left: 50px;
   margin-bottom: 30px;
-  padding: 0px 20px 30px 20px;
-  width: 85%;
+  padding: 30px;
+  width: 90%;
 }
-.news h1{
+.news h2{
   border-bottom: 1px solid rgba(180, 180, 180, 0.9);
   font-family: Tahoma, sans-serif;
   font-size: 25px;
   color: rgb(73, 73, 73);
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   text-align: center;
+}
+.news article p{
+  margin-top: 25px;
+  text-align: justify;
 }
 .news a{
   text-decoration: none;
   color: rgb(1, 177, 1);
 }
-.news article p{
-  clear: both;
-  text-align: justify;
-}
 .date{
   display: block;
   float: right;
-  margin-top: -10px;
-  margin-bottom: 10px;
   color: gray;
   font-size: 14px;
 }
 footer{
   background-color: #333333;
   color: aliceblue;
-  font-size: 14px;
-  margin: 0px auto;
+  font-size: 20px;
   margin-top: 40px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px 0px;
   text-align: center;
   width: 100%;
+}
+
+@media (max-width:767px){
+  .body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px;
+  }
+  .panel-left{
+    width: 80%;
+    margin-bottom: 50px;
+  }
+  .panel-news{
+    margin-left: 0px;
+  }
+  .news{
+    width: 100%;
+  }
+  .login h2{
+    height: auto;
+    padding: 5px;
+  }
+}
+
+
+@media(max-width:575px){
+  .body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 10px;
+  }
+  .panel-left{
+    width: 95%;
+    margin-bottom: 50px;
+  }
+  .panel-news{
+    margin-left: 0px;
+    width: 95%
+  }
+  .news{
+    width: 100%;
+  }
+  .login {
+    padding: 15px;
+    border-bottom: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+  }
+  .login h2{
+    height: auto;
+    padding: 5px;
+  }
+  
 }
